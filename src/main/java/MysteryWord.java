@@ -4,6 +4,8 @@ import java.util.*;
 
 public class MysteryWord {
 
+
+
     /**
      * 1. Lancement du jeu "Welcome to MysteryWord"
      * 2. Description du jeu, appuyez sur Entrée pour jouer.
@@ -14,10 +16,10 @@ public class MysteryWord {
      * 6. Trois essais possibles pour retrouver le mot
      * 6.1 Premier essai : - le joueur trouve le mot "Félicitation vous avez gagné "
      * Pour Rejouer tapez 1 (Retour à l'étape 4), Pour Quittez la partie tapez 2
-     * - le joueur ne trouve pas le mot "Ce n'est pas la bonne réponse, il vous reste deux essais" et on affiche le nombre de lettres correct
+     * - le joueur ne trouve pas le mot "Ce n'est pas la bonne réponse, il vous reste deux essais" et on affiche le nombre de lettres correctes
      * 6.2 Deuxième essai : - le joueur trouve le mot "Félicitation vous avez gagné "
      * Pour Rejouer tapez O (Retour à l'étape 4), Pour Quittez la partie tapez N
-     * -le joueur ne trouve pas le mot "Ce n'est pas la bonne réponse, il vous reste 1 essai" et on affiche le nombre de lettres correct
+     * -le joueur ne trouve pas le mot "Ce n'est pas la bonne réponse, il vous reste 1 essai" et on affiche le nombre de lettres correctes
      * 6.3 Troisième essai : -le joueur trouve le mot "Félicitation vous avez gagné "
      * - le joueur ne trouve pas le mot " Dommage, vous avez perdu ! "
      * Pour Rejouer tapez O (Retour à l'étape 4), pour Quittez la partie tapez N
@@ -58,13 +60,12 @@ public class MysteryWord {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Seules les valeurs 1, 2 ou 3 sont attendues");
-                sc.nextLine();
             } finally {
                 sc.nextLine();
             }
         } while (level < 1 || level > 3);
 
-        // On récupère la liste de mots de la longueur voulue
+        // On récupère la liste de mots de la longueur souhaitée.
         words = FileUtils.getWordsByLength(getLength(level));
     }
 
@@ -123,9 +124,9 @@ public class MysteryWord {
                     System.out.println("Tu as gagné ! Ton score est de : " + score + " points");
                     found = true;
                 } else {
-                    System.out.println("Nombre de lettres correct : " + correctLetters);
+                    System.out.println("Nombre de lettres correctes : " + correctLetters);
                     if (3 - tryNumber > 0) {
-                        System.out.println("Essaie encore ! Nombre d'essais restant : " + (3 - tryNumber));
+                        System.out.println("Essaie encore ! Nombre d'essais restants : " + (3 - tryNumber));
                     } else {
                         System.out.println();
                         System.out.println("Tu n'as pas trouvé ! Le mot mystère était :" + word);
@@ -137,7 +138,7 @@ public class MysteryWord {
             System.out.print("Veux-tu rejouer ? (O/N) ");
             String replay = sc.nextLine();
             while (!replay.equalsIgnoreCase("O") && !replay.equalsIgnoreCase("N")) {
-                System.out.print("Seuls les lettres O ou N sont acceptées ! Veux tu rejouer ? (O/N) ");
+                System.out.print("Seules les lettres O ou N sont acceptées ! Veux tu rejouer ? (O/N) ");
                 replay = sc.nextLine();
             }
             if (replay.equalsIgnoreCase("N")) {

@@ -34,6 +34,11 @@ public class FileUtils {
         }
     }
 
+    /**
+     * Récupère une liste de mots d'un nombre de lettres défini en paramètre
+     * @param length
+     * @return wordsByLength
+     */
     public static List<String> getWordsByLength(int length) {
         List<String> wordsByLength = new ArrayList<>();
 
